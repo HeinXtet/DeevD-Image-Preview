@@ -3,7 +3,7 @@
 This is simple Image preview android open source  library written with kotlin.
 
 #### Screen Shot
-![demo]("https://github.com/HeinXtet/DeevDImagePreview/blob/master/demo.gif?raw=true")
+![demo]("https://raw.githubusercontent.com/HeinXtet/DeevDImagePreview/master/demo.gif")
 
 
 
@@ -26,8 +26,8 @@ This is simple Image preview android open source  library written with kotlin.
 
    ```
    dependencies {
-   	       compile 'com.github.HeinXtet:DeevDialog:0.1.2'
-   	}
+   	  compile 'com.github.HeinXtet:DeevDImagePreview:0.1.0'
+   }
 
    ```
 
