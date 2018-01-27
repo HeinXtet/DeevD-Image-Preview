@@ -15,7 +15,7 @@ This is simple Image preview android open source  library written with kotlin.
 
    allprojects {
    		repositories {
-   			maven { url 'htt ps://jitpack.io' }
+   			maven { url 'https://jitpack.io' }
    		}
    	}
    ```
@@ -26,7 +26,7 @@ This is simple Image preview android open source  library written with kotlin.
 
    ```
    dependencies {
-   	  compile 'com.github.HeinXtet:DeevDImagePreview:0.1.0'
+   	  compile 'com.github.HeinXtet:DeevDImagePreview:0.1.3'
    }
 
    ```
@@ -39,6 +39,9 @@ This is simple Image preview android open source  library written with kotlin.
 1. #### Preparation
 
 ```
+
+Kotlin---
+
 var imageList = ArrayList<DialogImageData>() // id,description,imagePath,type
 imagelist.add(1,"simple","image",true)
 
@@ -48,7 +51,14 @@ show_gallary.setOnClickListener {
                     .setAnimationRes(DeevDAnimation.PULSE_ANIMATION)
                     .setDefaultPosition(0)
                     .createImageDialog(this)
- }               
+ }       
+ 
+ JAVA 
+  DeevDImagePreview.Instance
+                         .setImageList(getPersonList())
+                         .setDefaultPosition(0)
+                         .setAnimationRes(DeevDAnimation.Instance.getPULSE_ANIMATION())
+                         .createImageDialog(MySimple.this);
 ```
 
 #### Done….
