@@ -11,6 +11,7 @@ import android.support.v4.app.DialogFragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -50,22 +51,23 @@ class DeevDImagePreview : DialogFragment(), DialogRecyclerAdapter.ClickListener,
     var getImages = ArrayList<DialogImageData>()
 
     companion object Instance {
+        private val TAG = DeevDImagePreview::class.java.getSimpleName()
         var DIALOG_IMAGE_LIST = "image_list"
         var DIALOG_ANIMATION = "animation"
         var DIALOG_POSITION = "image_position"
         var DEEVD = "deevd"
-        private lateinit var mImageList: ArrayList<DialogImageData>
+        private var mImageList: ArrayList<DialogImageData>? = null
         private var mPostion: Int = 0
         private var mAnimation: Int? = null
         private var mActivity: Context? = null
 
-        open fun newInstance(): DeevDImagePreview {
+        private fun newInstance(): DeevDImagePreview {
             return DeevDImagePreview()
         }
 
         fun setImageList(imageList: ArrayList<DialogImageData>): Instance {
             mImageList = ArrayList<DialogImageData>()
-            this.mImageList.addAll(imageList)
+            this.mImageList!!.addAll(imageList)
             return this
         }
 
@@ -83,15 +85,28 @@ class DeevDImagePreview : DialogFragment(), DialogRecyclerAdapter.ClickListener,
             return this
         }
 
-        fun createImageDialog(context: Context) {
-            this.mActivity = context as FragmentActivity
+        fun buildImagePreview(context: Context) {
+
+        }
+
+        fun createImageDialog(context: Context?) {
+            if (context == null) {
+                Log.e(TAG, "null context")
+                return
+            }
+            if (mImageList != null) {
+                if (mImageList!!.size < 0) {
+                    Log.e(TAG, "image list need")
+                }
+            }
+            this.mActivity = context as FragmentActivity?
             val bundle = Bundle()
             bundle.putInt(DeevDImagePreview.DIALOG_POSITION, 0)
             bundle.putInt(DeevDImagePreview.DIALOG_ANIMATION, mAnimation!!)
             bundle.putSerializable(DeevDImagePreview.DIALOG_IMAGE_LIST, this.mImageList)
             var ft = (mActivity as FragmentActivity).supportFragmentManager.beginTransaction()
             var newFragment = DeevDImagePreview.newInstance()
-            newFragment.setArguments(bundle)
+            newFragment.arguments = bundle
             newFragment.show(ft, DeevDImagePreview.DEEVD)
         }
 
@@ -146,7 +161,6 @@ class DeevDImagePreview : DialogFragment(), DialogRecyclerAdapter.ClickListener,
 
     }
 
-
     override fun onStart() {
         super.onStart()
         if (dialog == null) {
@@ -165,7 +179,6 @@ class DeevDImagePreview : DialogFragment(), DialogRecyclerAdapter.ClickListener,
         dAdapter.setPosition(position)
     }
 
-    //	page change listener
     var viewPagerPageChangeListener: ViewPager.OnPageChangeListener = object : ViewPager.OnPageChangeListener {
 
         override fun onPageSelected(position: Int) {
