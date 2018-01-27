@@ -26,7 +26,7 @@ This is simple Image preview android open source  library written with kotlin.
 
    ```
    dependencies {
-   	  compile 'com.github.HeinXtet:DeevDImagePreview:0.1.4'
+   	  compile 'com.github.HeinXtet:DeevDImagePreview:0.1.0'
    }
 
    ```
@@ -40,7 +40,7 @@ This is simple Image preview android open source  library written with kotlin.
 
 ```
 
-Kotlin---
+Kotlin
 
 var imageList = ArrayList<DialogImageData>() // id,description,imagePath,type
 imagelist.add(1,"simple","image",true)
