@@ -4,7 +4,7 @@ This is simple Image preview android open source  library written with kotlin.
 
 #### Screen Shot
 
-![Alt Text](https://github.com/HeinXtet/DeevDImagePreview/blob/master/demo.gif)
+![Alt Text](https://github.com/HeinXtet/DeevD-Image-Preview/blob/master/demo.gif)
 
 
 #### How to use
