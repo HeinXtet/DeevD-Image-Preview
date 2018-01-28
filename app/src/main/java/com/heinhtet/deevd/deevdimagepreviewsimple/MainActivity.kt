@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.dev.sample.features.dialogImage.DeevDImagePreview
 import com.example.heinhtet.gallaryview.dialog.DialogImageData
-import com.heinhtet.deevd.deevdimagepreview.dialog.dialog.DeevDAnimation
+import com.heinhtet.deevd.deevdimagepreview.dialog.DeevDAnimation
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

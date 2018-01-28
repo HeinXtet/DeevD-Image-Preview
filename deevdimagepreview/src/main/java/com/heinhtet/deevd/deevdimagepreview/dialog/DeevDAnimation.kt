@@ -1,10 +1,12 @@
-package com.heinhtet.deevd.deevdimagepreview.dialog.dialog
+package com.heinhtet.deevd.deevdimagepreview.dialog
 
 import com.heinhtet.deevd.deevdimagepreview.R
 
 /**
  * Created by heinhtet on 1/18/18.
  */
+
+
 class DeevDAnimation {
 
     companion object Instance {

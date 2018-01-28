@@ -1,5 +1,6 @@
 package com.dev.sample.features.dialogImage
 
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.Context
 import android.os.Build
@@ -59,6 +60,7 @@ class DeevDImagePreview : DialogFragment(), DialogRecyclerAdapter.ClickListener,
         private var mImageList: ArrayList<DialogImageData>? = null
         private var mPostion: Int = 0
         private var mAnimation: Int? = null
+        @SuppressLint("StaticFieldLeak")
         private var mActivity: Context? = null
 
         private fun newInstance(): DeevDImagePreview {
